@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#222; color:white; text-align:center;">
+
+<canvas id="game" width="300" height="300" style="background:#444;"></canvas>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+ctx.fillStyle = "yellow";
+ctx.beginPath();
+ctx.arc(150, 150, 40, 0, Math.PI * 2);
+ctx.fill();
+</script>
+
+</body>
+</html>
+
