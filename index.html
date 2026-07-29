@@ -1,43 +1,30 @@
 <!DOCTYPE html>
-<html>
-<body style="background:#222; color:white; font-size:30px; text-align:center;">
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vibe Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="bg"></canvas>
 
-<p id="score">Score: 0</p>
+  <main class="wrap">
+    <header class="hero">
+      <h1 class="title">Vibe Game</h1>
+      <p class="subtitle">クリック／タップでバイブを感じろ</p>
+    </header>
 
-<canvas id="game" width="300" height="300" style="background:#444;"></canvas>
+    <section class="game-area" aria-label="ゲーム領域">
+      <p id="score" class="score" aria-live="polite">Score: 0</p>
+      <canvas id="game" width="300" height="300" aria-label="ゲームキャンバス"></canvas>
+    </section>
 
-<script>
-let score = 0;
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
+    <footer class="foot">
+      <p>Made with neon vibes ✨</p>
+    </footer>
+  </main>
 
-draw();
-
-// PC用クリック
-canvas.addEventListener("click", () => {
-  score++;
-  draw();
-});
-
-// スマホ用タップ（iPhone対応）
-canvas.addEventListener("touchstart", (e) => {
-  e.preventDefault(); // ズーム誤判定を防ぐ
-  score++;
-  draw();
-}, { passive: false });
-
-function draw() {
-  ctx.fillStyle = "#444";
-  ctx.fillRect(0, 0, 300, 300);
-
-  ctx.fillStyle = "yellow";
-  ctx.beginPath();
-  ctx.arc(150, 150, 40, 0, Math.PI * 2);
-  ctx.fill();
-
-  document.getElementById("score").innerText = "Score: " + score;
-}
-</script>
-
+  <script src="script.js" defer></script>
 </body>
 </html>
